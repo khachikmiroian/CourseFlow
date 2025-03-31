@@ -1,0 +1,65 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Courses app</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {{! Всегда показываем Home, выделяем активный пункт при isHome }}
+      {{#if isHome}}
+        <li class="active"><a href="/">Home</a></li>
+      {{else}}
+        <li><a href="/">Home</a></li>
+      {{/if}}
+
+      {{! Если пользователь залогинен (isAuth == true) }}
+      {{#if isAuth}}
+        {{! Показываем Courses, Add course, Card, Orders }}
+
+        {{#if isCourses}}
+          <li class="active"><a href="/courses">Courses</a></li>
+        {{else}}
+          <li><a href="/courses">Courses</a></li>
+        {{/if}}
+
+        {{#if isAdd}}
+          <li class="active"><a href="/add">Add course</a></li>
+        {{else}}
+          <li><a href="/add">Add course</a></li>
+        {{/if}}
+
+        {{#if isProfile}}
+          <li class="active"><a href="/profile">Profile</a></li>
+        {{else}}
+          <li><a href="/profile">Profile</a></li>
+        {{/if}}
+
+        {{#if isCard}}
+          <li class="active"><a href="/card">Card</a></li>
+        {{else}}
+          <li><a href="/card">Card</a></li>
+        {{/if}}
+
+        {{#if isOrder}}
+          <li class="active"><a href="/orders">Order</a></li>
+        {{else}}
+          <li><a href="/orders">Order</a></li>
+        {{/if}}
+        <li><a href="/auth/logout">Log out</a></li>
+
+        {{! Если пользователь НЕ залогинен }}
+      {{else}}
+        {{! Показываем только Courses и Log in }}
+
+        {{#if isCourses}}
+          <li class="active"><a href="/courses">Courses</a></li>
+        {{else}}
+          <li><a href="/courses">Courses</a></li>
+        {{/if}}
+
+        {{#if isLogin}}
+          <li class="active"><a href="/auth/login#login">Log in</a></li>
+        {{else}}
+          <li><a href="/auth/login#login">Log in</a></li>
+        {{/if}}
+      {{/if}}
+    </ul>
+  </div>
+</nav>
